@@ -1,0 +1,15 @@
+D:\C# local project\PomodoroS\PomodoroS\bin\Debug\PomodoroS.exe.config
+D:\C# local project\PomodoroS\PomodoroS\bin\Debug\PomodoroS.exe
+D:\C# local project\PomodoroS\PomodoroS\bin\Debug\PomodoroS.pdb
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\PomodoroS.csprojAssemblyReference.cache
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\MainWindow.g.cs
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\App.g.cs
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\PomodoroS_MarkupCompile.cache
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\PomodoroS_MarkupCompile.lref
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\MainWindow.baml
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\PomodoroS.g.resources
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\PomodoroS.Properties.Resources.resources
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\PomodoroS.csproj.GenerateResource.cache
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\PomodoroS.csproj.CoreCompileInputs.cache
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\PomodoroS.exe
+D:\C# local project\PomodoroS\PomodoroS\obj\Debug\PomodoroS.pdb
