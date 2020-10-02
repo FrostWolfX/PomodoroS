@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading.Tasks;
 
 namespace PomodoroS
 {
@@ -20,21 +22,14 @@ namespace PomodoroS
     /// </summary>
     public partial class MainWindow : Window
     {
+        private int timeMinute;
         public MainWindow()
         {
             InitializeComponent();
-            TimePomodoro.Content = SettingPomodoroTime.SelectedItem;
+            timeMinute = Convert.ToInt32(SettingPomodoroTime.Text);
         }
-        DateTime dateTime(int time)
-        {
-            DateTime timeNow = DateTime.Now;
 
-            TimeSpan interval = new TimeSpan(0, time, 0);
 
-            DateTime newTime = timeNow.Add(interval);
-
-            return newTime;
-        }
 
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
@@ -42,7 +37,7 @@ namespace PomodoroS
         }
         private void PomodoroStart_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(dateTime(Convert.ToInt32(SettingPomodoroTime.Text)).ToString());
+            SmallTimer smallTimer = new SmallTimer(timeMinute);
         }
     }
 }
