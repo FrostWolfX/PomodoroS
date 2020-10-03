@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PomodoroS"
         mc:Ignorable="d"
-        Title="PomodoroS" Height="500" Width="318">
+        Title="PomodoroS" Height="500" Width="318" Loaded="Window_Loaded">
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="131" Margin="10,182,0,0" VerticalAlignment="Top" Width="290">
             <TabItem Header="Time (minutes) Settings">
@@ -22,15 +22,16 @@
                     <ComboBox x:Name="SettingLongBreak" HorizontalAlignment="Left" Margin="195,35,0,0" VerticalAlignment="Top" Width="77" IsEditable="True" SelectedIndex="0">
                         <ListBoxItem Content="15"/>
                     </ComboBox>
-                    <Button x:Name="SettingsSave" Content="OK" HorizontalAlignment="Left" Margin="108,73,0,0" VerticalAlignment="Top" Width="63" Click="SaveSettings_Click"/>
+                    <Button x:Name="SettingsSave" Content="OK" HorizontalAlignment="Left" Margin="108,73,0,0" VerticalAlignment="Top" Width="63"/>
                 </Grid>
             </TabItem>
         </TabControl>
         <TabControl HorizontalAlignment="Left" Height="131" Margin="10,10,0,0" VerticalAlignment="Top" Width="285">
             <TabItem Header="Pomodoro">
                 <Grid Background="#FFE5E5E5">
-                    <Label x:Name="TimePomodoro" Content="Label" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Height="55" Width="166" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold"/>
-                    <Button x:Name="StartPomodoro" Content="START" HorizontalAlignment="Left" Margin="102,70,0,0" VerticalAlignment="Top" Width="94" Height="23" FontWeight="Bold" Click="PomodoroStart_Click"/>
+                    <Label x:Name="TimePomodoroLabel" Content="" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Height="55" Width="166" VerticalContentAlignment="Center" FontSize="20" FontWeight="Bold"/>
+                    <Button x:Name="StartPomodoroButton" Content="START" HorizontalAlignment="Left" Margin="34,70,0,0" VerticalAlignment="Top" Width="94" Height="23" FontWeight="Bold" Click="StartPomodoroButton_Click"/>
+                    <Button x:Name="StopPomodoroButton" Content="STOP" HorizontalAlignment="Left" Margin="148,70,0,0" VerticalAlignment="Top" Width="94" Height="23" FontWeight="Bold" Click="StopPomodoroButton_Click"/>
                 </Grid>
             </TabItem>
             <TabItem Header="Short Break" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="auto">
@@ -40,7 +41,6 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-        <TextBox x:Name="resultAll" HorizontalAlignment="Left" Height="94" Margin="10,330,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="285"/>
-        <Label x:Name="label1" Content="Label" HorizontalAlignment="Left" Margin="10,429,0,0" VerticalAlignment="Top" Width="290"/>
+        <TextBox x:Name="resultAll" HorizontalAlignment="Left" Height="94" Margin="10,330,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="285"/>
     </Grid>
 </Window>
