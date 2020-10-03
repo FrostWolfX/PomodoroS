@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Threading.Tasks;
+using System.Windows.Threading;
 
 namespace PomodoroS
 {
@@ -22,22 +21,45 @@ namespace PomodoroS
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int timeMinute;
+        int maxTimeCounter = 3600;
+        int minTimeCounter = 0;
+        DispatcherTimer dispatcherTimer;
+        int dispatcherCounter;
         public MainWindow()
         {
             InitializeComponent();
-            timeMinute = Convert.ToInt32(SettingPomodoroTime.Text);
+            StartTimer();
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
 
-
-
-        private void SaveSettings_Click(object sender, RoutedEventArgs e)
+        void StartTimer()
         {
-
+            dispatcherCounter = minTimeCounter;
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Interval = TimeSpan.FromMilliseconds(1000);
+            dispatcherTimer.Tick += DispatcherTimer_Tick;
         }
-        private void PomodoroStart_Click(object sender, RoutedEventArgs e)
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            SmallTimer smallTimer = new SmallTimer(timeMinute);
+            TimePomodoroLabel.Content = (dispatcherCounter++).ToString();
+            if (dispatcherCounter > maxTimeCounter)
+            {
+                dispatcherCounter = minTimeCounter;
+            }
+        }
+
+        private void StartPomodoroButton_Click(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Start();
+        }
+
+        private void StopPomodoroButton_Click(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer.Stop();
         }
     }
 }
