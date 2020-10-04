@@ -1,0 +1,15 @@
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\bin\Debug\TimerPomodoro.exe.config
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\bin\Debug\TimerPomodoro.exe
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\bin\Debug\TimerPomodoro.pdb
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\TimerPomodoro.csprojAssemblyReference.cache
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\MainWindow.g.cs
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\App.g.cs
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\TimerPomodoro_MarkupCompile.cache
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\TimerPomodoro_MarkupCompile.lref
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\MainWindow.baml
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\TimerPomodoro.g.resources
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\TimerPomodoro.Properties.Resources.resources
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\TimerPomodoro.csproj.GenerateResource.cache
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\TimerPomodoro.csproj.CoreCompileInputs.cache
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\TimerPomodoro.exe
+C:\My_folder\C#\TimerPomodoro\TimerPomodoro\obj\Debug\TimerPomodoro.pdb
