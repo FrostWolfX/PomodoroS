@@ -25,15 +25,19 @@ namespace TimerPomodoro
     public partial class MainWindow : Window
     {
         Class.OnePomodoro onePomodoro;
+        int timePomodoro;
+        int timeShortBreak;
+        int timeLongBreak;
+        int timeCounter = 4;
+
         public MainWindow()
         {
             InitializeComponent();
+            timePomodoro = Int32.TryParse(TimePomodoro.Text, out timePomodoro) ? Convert.ToInt32(TimePomodoro.Text) : 0;
+            timeShortBreak = Int32.TryParse(TimeShortBreak.Text, out timeShortBreak) ? Convert.ToInt32(TimeShortBreak.Text) : 0;
+            timeLongBreak = Int32.TryParse(TimeLongBreak.Text, out timeLongBreak) ? Convert.ToInt32(TimeLongBreak.Text) : 0;
+            onePomodoro = new Class.OnePomodoro(timePomodoro, timeShortBreak, timeLongBreak, timeCounter);
         }
-        //public string TextboxText
-        //{
-        //    get { return TimePomodoroLabel.Content.ToString(); }
-        //    set { TimePomodoroLabel.Content = value; }
-        //}
         private void ButtonStartTimer_Click(object sender, RoutedEventArgs e)
         {
             onePomodoro.StartTimer();
@@ -46,7 +50,16 @@ namespace TimerPomodoro
 
         private void Form1_Loaded(object sender, RoutedEventArgs e)
         {
-            onePomodoro = new Class.OnePomodoro(3, 5, 15);
+            
+        }
+
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            onePomodoro.StopTimer();
+            timePomodoro = Int32.TryParse(TimePomodoro.Text, out timePomodoro) ? Convert.ToInt32(TimePomodoro.Text) : 0;
+            timeShortBreak = Int32.TryParse(TimeShortBreak.Text, out timeShortBreak) ? Convert.ToInt32(TimeShortBreak.Text) : 0;
+            timeLongBreak = Int32.TryParse(TimeLongBreak.Text, out timeLongBreak) ? Convert.ToInt32(TimeLongBreak.Text) : 0;
+            onePomodoro = new Class.OnePomodoro(timePomodoro, timeShortBreak, timeLongBreak, timeCounter);
         }
     }
 }
