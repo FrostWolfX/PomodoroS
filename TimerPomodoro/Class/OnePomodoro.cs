@@ -51,7 +51,8 @@ namespace TimerPomodoro.Class
             }
             else
             {
-                
+                System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Windows\Media\chimes.wav");
+                player.Play();
                 dispatcherTimer.Stop();
             }
         }
