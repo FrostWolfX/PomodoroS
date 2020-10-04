@@ -46,7 +46,7 @@ namespace TimerPomodoro
 
         private void Form1_Loaded(object sender, RoutedEventArgs e)
         {
-            onePomodoro = new Class.OnePomodoro(10, 5, 15);
+            onePomodoro = new Class.OnePomodoro(3, 5, 15);
         }
     }
 }
