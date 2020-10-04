@@ -7,9 +7,46 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="305.372" Loaded="Form1_Loaded">
     <Grid>
-        <Label x:Name="TimePomodoroLabel" Content="" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="50" Width="277" x:FieldModifier="public"/>
-        <Button x:Name="ButtonStartTimer" Content="START" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="114" Height="50" Click="ButtonStartTimer_Click"/>
-        <Button x:Name="ButtonStopTimer" Content="STOP" HorizontalAlignment="Left" Margin="173,78,0,0" VerticalAlignment="Top" Width="114" Height="50" Click="ButtonStopTimer_Click"/>
+        <Label x:Name="TimePomodoroLabel" Content="00:00" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="50" Width="277" x:FieldModifier="public" FontWeight="Bold" FontSize="35" RenderTransformOrigin="0.5,0.5" Background="Transparent" HorizontalContentAlignment="Center">
+            <Label.LayoutTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.LayoutTransform>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Button x:Name="ButtonStartTimer" Content="START" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="114" Height="50" Click="ButtonStartTimer_Click" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="ButtonStopTimer" Content="STOP" HorizontalAlignment="Left" Margin="173,78,0,0" VerticalAlignment="Top" Width="114" Height="50" Click="ButtonStopTimer_Click" FontWeight="Bold" FontSize="14"/>
+        <TabControl HorizontalAlignment="Left" Height="169" Margin="10,142,0,0" VerticalAlignment="Top" Width="277">
+            <TabItem Header="TIMER SETTING">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox x:Name="TimePomodoro" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" IsEditable="True" SelectedIndex="0" HorizontalContentAlignment="Center" Padding="2">
+                        <ComboBoxItem Content="25"/>
+                    </ComboBox>
+                    <ComboBox x:Name="TimeShortBreak" HorizontalAlignment="Left" Margin="105,55,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" IsEditable="True" SelectedIndex="0" HorizontalContentAlignment="Center" Padding="2">
+                        <ComboBoxItem Content="5"/>
+                    </ComboBox>
+                    <Label Content="Pomodoro" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="70"/>
+                    <Label Content="Short Break" HorizontalAlignment="Left" Margin="105,19,0,0" VerticalAlignment="Top" Width="72"/>
+                    <Label Content="Long Break" HorizontalAlignment="Left" Margin="191,19,0,0" VerticalAlignment="Top" Width="70"/>
+                    <Button x:Name="ButtonSave" Content="Сохранить" HorizontalAlignment="Left" Margin="91,96,0,0" VerticalAlignment="Top" Width="100" Height="30" FontWeight="Bold" FontSize="14" Click="ButtonSave_Click"/>
+                    <ComboBox x:Name="TimeLongBreak" HorizontalAlignment="Left" Margin="191,55,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" IsEditable="True" SelectedIndex="0" HorizontalContentAlignment="Center" Padding="2">
+                        <ComboBoxItem Content="15"/>
+                    </ComboBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Label x:Name="Attention" Content="Label" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Width="277" Height="53"/>
 
     </Grid>
 </Window>
