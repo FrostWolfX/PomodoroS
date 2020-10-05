@@ -33,9 +33,9 @@ namespace TimerPomodoro
         public MainWindow()
         {
             InitializeComponent();
-            timePomodoro = Int32.TryParse(TimePomodoro.Text, out timePomodoro) ? Convert.ToInt32(TimePomodoro.Text) : 0;
-            timeShortBreak = Int32.TryParse(TimeShortBreak.Text, out timeShortBreak) ? Convert.ToInt32(TimeShortBreak.Text) : 0;
-            timeLongBreak = Int32.TryParse(TimeLongBreak.Text, out timeLongBreak) ? Convert.ToInt32(TimeLongBreak.Text) : 0;
+            timePomodoro = Int32.TryParse(TimePomodoro.Text, out timePomodoro) ? Convert.ToInt32(TimePomodoro.Text) : 25;
+            timeShortBreak = Int32.TryParse(TimeShortBreak.Text, out timeShortBreak) ? Convert.ToInt32(TimeShortBreak.Text) : 5;
+            timeLongBreak = Int32.TryParse(TimeLongBreak.Text, out timeLongBreak) ? Convert.ToInt32(TimeLongBreak.Text) : 15;
             onePomodoro = new Class.OnePomodoro(timePomodoro, timeShortBreak, timeLongBreak, timeCounter);
         }
         private void ButtonStartTimer_Click(object sender, RoutedEventArgs e)
@@ -56,10 +56,35 @@ namespace TimerPomodoro
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
             onePomodoro.StopTimer();
-            timePomodoro = Int32.TryParse(TimePomodoro.Text, out timePomodoro) ? Convert.ToInt32(TimePomodoro.Text) : 0;
-            timeShortBreak = Int32.TryParse(TimeShortBreak.Text, out timeShortBreak) ? Convert.ToInt32(TimeShortBreak.Text) : 0;
-            timeLongBreak = Int32.TryParse(TimeLongBreak.Text, out timeLongBreak) ? Convert.ToInt32(TimeLongBreak.Text) : 0;
+            timePomodoro = Int32.TryParse(TimePomodoro.Text, out timePomodoro) ? Convert.ToInt32(TimePomodoro.Text) : 25;
+            timeShortBreak = Int32.TryParse(TimeShortBreak.Text, out timeShortBreak) ? Convert.ToInt32(TimeShortBreak.Text) : 5;
+            timeLongBreak = Int32.TryParse(TimeLongBreak.Text, out timeLongBreak) ? Convert.ToInt32(TimeLongBreak.Text) : 15;
             onePomodoro = new Class.OnePomodoro(timePomodoro, timeShortBreak, timeLongBreak, timeCounter);
+        }
+
+        private static bool notNumber = false;
+        private void TimePomodoro_KeyDown(object sender, KeyEventArgs e)
+        {
+            inputText(e);
+        }
+        private KeyEventArgs inputText(KeyEventArgs e)
+        {
+            e.Handled = true;
+            if ((e.Key >= Key.D0 && e.Key <= Key.D9) || (e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9) || e.Key == Key.Back)
+            {
+                e.Handled = false;
+            }
+            return e;
+        }
+
+        private void TimeShortBreak_KeyDown(object sender, KeyEventArgs e)
+        {
+            inputText(e);
+        }
+
+        private void TimeLongBreak_KeyDown(object sender, KeyEventArgs e)
+        {
+            inputText(e);
         }
     }
 }

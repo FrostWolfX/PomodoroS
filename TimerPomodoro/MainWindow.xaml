@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimerPomodoro"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="305.372" Loaded="Form1_Loaded">
+        Title="MainWindow" Height="450" Width="313.372" Loaded="Form1_Loaded">
     <Grid>
         <Label x:Name="TimePomodoroLabel" Content="00:00" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="50" Width="277" x:FieldModifier="public" FontWeight="Bold" FontSize="35" RenderTransformOrigin="0.5,0.5" Background="Transparent" HorizontalContentAlignment="Center">
             <Label.LayoutTransform>
@@ -30,17 +30,17 @@
         <TabControl HorizontalAlignment="Left" Height="169" Margin="10,142,0,0" VerticalAlignment="Top" Width="277">
             <TabItem Header="TIMER SETTING">
                 <Grid Background="#FFE5E5E5">
-                    <ComboBox x:Name="TimePomodoro" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" IsEditable="True" SelectedIndex="0" HorizontalContentAlignment="Center" Padding="2">
+                    <ComboBox x:Name="TimePomodoro" HorizontalAlignment="Left" Margin="10,55,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" IsEditable="True" SelectedIndex="0" HorizontalContentAlignment="Center" Padding="2" KeyDown="TimePomodoro_KeyDown">
                         <ComboBoxItem Content="25"/>
                     </ComboBox>
-                    <ComboBox x:Name="TimeShortBreak" HorizontalAlignment="Left" Margin="105,55,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" IsEditable="True" SelectedIndex="0" HorizontalContentAlignment="Center" Padding="2">
+                    <ComboBox x:Name="TimeShortBreak" HorizontalAlignment="Left" Margin="105,55,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" IsEditable="True" SelectedIndex="0" HorizontalContentAlignment="Center" Padding="2" KeyDown="TimeShortBreak_KeyDown">
                         <ComboBoxItem Content="5"/>
                     </ComboBox>
                     <Label Content="Pomodoro" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="70"/>
                     <Label Content="Short Break" HorizontalAlignment="Left" Margin="105,19,0,0" VerticalAlignment="Top" Width="72"/>
                     <Label Content="Long Break" HorizontalAlignment="Left" Margin="191,19,0,0" VerticalAlignment="Top" Width="70"/>
                     <Button x:Name="ButtonSave" Content="Сохранить" HorizontalAlignment="Left" Margin="91,96,0,0" VerticalAlignment="Top" Width="100" Height="30" FontWeight="Bold" FontSize="14" Click="ButtonSave_Click"/>
-                    <ComboBox x:Name="TimeLongBreak" HorizontalAlignment="Left" Margin="191,55,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" IsEditable="True" SelectedIndex="0" HorizontalContentAlignment="Center" Padding="2">
+                    <ComboBox x:Name="TimeLongBreak" HorizontalAlignment="Left" Margin="191,55,0,0" VerticalAlignment="Top" Width="70" FontWeight="Bold" IsEditable="True" SelectedIndex="0" HorizontalContentAlignment="Center" Padding="2" KeyDown="TimeLongBreak_KeyDown">
                         <ComboBoxItem Content="15"/>
                     </ComboBox>
                 </Grid>
