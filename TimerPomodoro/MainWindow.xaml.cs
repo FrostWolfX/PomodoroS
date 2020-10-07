@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using TimerPomodoro.Class;
 
 namespace TimerPomodoro
 {
@@ -33,10 +34,15 @@ namespace TimerPomodoro
         public MainWindow()
         {
             InitializeComponent();
+            InitializeComponents(ref timePomodoro, ref timeShortBreak, ref timeLongBreak);
+        }
+
+        Class.OnePomodoro InitializeComponents(ref int timePomodoro, ref int timeShortBreak, ref int timeLongBreak)
+        {
             timePomodoro = Int32.TryParse(TimePomodoro.Text, out timePomodoro) ? Convert.ToInt32(TimePomodoro.Text) : 25;
             timeShortBreak = Int32.TryParse(TimeShortBreak.Text, out timeShortBreak) ? Convert.ToInt32(TimeShortBreak.Text) : 5;
             timeLongBreak = Int32.TryParse(TimeLongBreak.Text, out timeLongBreak) ? Convert.ToInt32(TimeLongBreak.Text) : 15;
-            onePomodoro = new Class.OnePomodoro(timePomodoro, timeShortBreak, timeLongBreak, timeCounter);
+            return onePomodoro = new Class.OnePomodoro(timePomodoro, timeShortBreak, timeLongBreak, timeCounter);
         }
         private void ButtonStartTimer_Click(object sender, RoutedEventArgs e)
         {
@@ -56,13 +62,8 @@ namespace TimerPomodoro
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
             onePomodoro.StopTimer();
-            timePomodoro = Int32.TryParse(TimePomodoro.Text, out timePomodoro) ? Convert.ToInt32(TimePomodoro.Text) : 25;
-            timeShortBreak = Int32.TryParse(TimeShortBreak.Text, out timeShortBreak) ? Convert.ToInt32(TimeShortBreak.Text) : 5;
-            timeLongBreak = Int32.TryParse(TimeLongBreak.Text, out timeLongBreak) ? Convert.ToInt32(TimeLongBreak.Text) : 15;
-            onePomodoro = new Class.OnePomodoro(timePomodoro, timeShortBreak, timeLongBreak, timeCounter);
+            InitializeComponents(ref timePomodoro, ref timeShortBreak, ref timeLongBreak);
         }
-
-        private static bool notNumber = false;
         private void TimePomodoro_KeyDown(object sender, KeyEventArgs e)
         {
             inputText(e);
