@@ -6,7 +6,11 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using System.Drawing;
 
 
 namespace TimerPomodoro.Class
@@ -18,8 +22,9 @@ namespace TimerPomodoro.Class
         private int CountInterval;
         private int RealTimerCounter;
         private int TimeWork;
+        private string nameForm = "";
         private bool workTime = true;
-        bool bigRelax = false;
+        private bool bigRelax = false;
 
         private DispatcherTimer dispatcherTimer;
         readonly MainWindow Form = Application.Current.Windows[0] as MainWindow;
@@ -47,7 +52,6 @@ namespace TimerPomodoro.Class
         //метод выполняется каждую секунду
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            
             //остановка таймера после большого перерыва
             if (RealTimerCounter <= 0 && bigRelax == true)
             {
@@ -56,22 +60,29 @@ namespace TimerPomodoro.Class
             //время уменьшается по 1 сек и выводится
             else if (RealTimerCounter-- > 0)
             {
+                int resultMinutes = RealTimerCounter / 60;
+                int resultSeconds = (RealTimerCounter) % 60;
+                string timeToLabel = textTime(resultMinutes, resultSeconds);
                 if (CountInterval % 2 == 0 && workTime == true)
                 {
                     workTime = false;
                     RealTimerCounter = TimeWork;
                     Form.Attention.Content = "Time to work!";
-                    Form.Form1.Title = "WORK";
+                    nameForm = "WORK ";
+                    Form.Form1.Title = "WORK ";
+                    Form.Form1.Icon = BitmapFrame.Create(new Uri("work.ico", UriKind.RelativeOrAbsolute));
                 }
                 if (CountInterval % 2 != 0 && workTime == true)
                 {
                     Form.Attention.Content = "Relax time!";
-                    Form.Form1.Title = "RELAX";
+                    nameForm = "RELAX ";
+                    Form.Form1.Title = "RELAX ";
+                    Form.Form1.Icon = BitmapFrame.Create(new Uri("relax.ico", UriKind.RelativeOrAbsolute));
                 }
+                Form.Form1.Title = nameForm + timeToLabel;
 
-                int resultMinutes = RealTimerCounter / 60;
-                int resultSeconds = (RealTimerCounter) % 60;
-                Form.TimePomodoroLabel.Content = $"{resultMinutes}:{resultSeconds}";
+
+                Form.TimePomodoroLabel.Content = timeToLabel;
             }
             //если время закончилось, происходит звуковое оповещение и переключенние на перерыв/работу/большой перерыв
             else
@@ -97,6 +108,35 @@ namespace TimerPomodoro.Class
                     TimerLong();
                 }
             }
+        }
+
+        string textTime(int resultMinutes, int resultSeconds)
+        {
+            if (resultMinutes.ToString().Length % 2 == 1 && resultSeconds.ToString().Length % 2 == 1)
+            {
+                return $"0{resultMinutes}:0{resultSeconds}";
+            }
+            if (resultMinutes.ToString().Length % 2 == 1)
+            {
+                if (resultSeconds.ToString().Length % 2 == 1)
+                {
+                    return $"{resultMinutes}:0{resultSeconds}";
+                }
+                return $"0{resultMinutes}:{resultSeconds}";
+            }
+            else if (resultSeconds.ToString().Length % 2 == 1)
+            {
+                if (resultMinutes.ToString().Length % 2 == 1)
+                {
+                    return $"{resultMinutes}:0{resultSeconds}";
+                }
+                return $"{resultMinutes}:0{resultSeconds}";
+            }
+            else
+            {
+                return $"{resultMinutes}:{resultSeconds}";
+            }
+            
         }
 
         private void TimerShort()

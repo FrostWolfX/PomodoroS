@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TimerPomodoro"
         mc:Ignorable="d"
-        Title="PomodoroS" Height="450" Width="313.372" Loaded="Form1_Loaded">
+        Title="PomodoroS" Height="450" Width="313.372" Loaded="Form1_Loaded" Icon="work.ico">
     <Window.BorderBrush>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="0"/>
